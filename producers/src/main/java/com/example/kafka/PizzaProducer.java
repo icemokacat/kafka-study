@@ -54,7 +54,7 @@ public class PizzaProducer {
 			if(interIntervalMillis > 0){
 				try {
 					log.info("######### IntervalIntervalMillis: {} #############", interIntervalMillis);
-					Thread.sleep(intervalMillis);
+					Thread.sleep(interIntervalMillis);
 				} catch (InterruptedException e) {
 					log.error(e.getMessage());
 				}
@@ -119,7 +119,7 @@ public class PizzaProducer {
 		KafkaProducer<String, String> kafkaProducer = new KafkaProducer<>(props);
 
 		try(kafkaProducer){
-			sendPizzaMessage(kafkaProducer, topicName, -1, 1000, 0, 0, false);
+			sendPizzaMessage(kafkaProducer, topicName, -1, 1000, 0, 0, true);
 		}
 
 	}
