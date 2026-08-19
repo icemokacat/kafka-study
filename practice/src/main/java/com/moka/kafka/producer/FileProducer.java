@@ -1,9 +1,5 @@
 package com.moka.kafka.producer;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
@@ -49,7 +45,19 @@ public class FileProducer {
 	}
 
 	private static void sendMessage(KafkaProducer<String, String> kafkaProducer, String topicName, PizzaMessage pizzaMessage) {
+		ProducerRecord<String, String> producerRecord = new ProducerRecord<>(topicName, pizzaMessage.key(), pizzaMessage.value());
+		log.info("key: {}, value: {}", pizzaMessage.key(), pizzaMessage.value());
 
+		kafkaProducer.send(producerRecord, (metadata, exception) -> {
+			if (exception != null) {
+				// 에러
+				log.error("Error sending message {}", exception.getMessage());
+			}else{
+				// send 후 정상 callback
+				log.info("\n ########## record metadata received ####### \npartition:{}\noffset:{}\ntimestamp:{}",
+					metadata.partition(), metadata.offset(), metadata.timestamp());
+			}
+		});
 	}
 
 }
