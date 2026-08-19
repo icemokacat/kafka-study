@@ -111,7 +111,7 @@ public class PizzaProducer {
 
 		//props.setProperty(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG		, "50000");
 		//props.setProperty(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION,"6");
-		props.setProperty(ProducerConfig.ACKS_CONFIG,"0");
+		//props.setProperty(ProducerConfig.ACKS_CONFIG,"1");
 		// props.setProperty(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true");
 
 		// KafkaProducer Object creation
