@@ -18,6 +18,8 @@ dependencies {
     implementation("org.slf4j:slf4j-simple:1.7.36")
     // Source: https://mvnrepository.com/artifact/com.github.javafaker/javafaker
     implementation("com.github.javafaker:javafaker:1.0.2")
+    // Source: https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation("org.postgresql:postgresql:42.7.12")
 
     // TEST
     testImplementation("org.slf4j:slf4j-simple:1.7.36")
